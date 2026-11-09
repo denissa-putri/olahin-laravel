@@ -15,6 +15,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('stok.index')" :active="request()->routeIs('stok.*')">
+                        {{ __('Stok Saya') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('master-bahan.index')" :active="request()->routeIs('master-bahan.*')">
+                        {{ __('Bahan') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('master-kategori.index')" :active="request()->routeIs('master-kategori.*')">
+                        {{ __('Kategori') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -23,7 +32,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div>{{ Auth::user()->username ?? Auth::user()->name }}</div>
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -70,12 +79,21 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('stok.index')" :active="request()->routeIs('stok.*')">
+                {{ __('Stok Saya') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('master-bahan.index')" :active="request()->routeIs('master-bahan.*')">
+                {{ __('Bahan') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('master-kategori.index')" :active="request()->routeIs('master-kategori.*')">
+                {{ __('Kategori') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-base text-gray-800">{{ Auth::user()->username ?? Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
