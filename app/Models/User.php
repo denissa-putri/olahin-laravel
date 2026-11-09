@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @return array<string, string>
      */
 
-    protected $primaryKey = 'id_user';
+    protected $primaryKey = 'id';
 
     public $timestamps = false;
 
