@@ -7,21 +7,16 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Duplicate/placeholder: tabel catatan_masak sudah dibuat oleh
+     * 2026_11_08_135113_create_catatan_masak_table (skema ERD).
      */
     public function up(): void
     {
-        Schema::create('catatan_masak', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        // no-op: tabel sudah ada
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('catatan_masak');
+        // no-op
     }
 };
