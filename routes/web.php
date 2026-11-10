@@ -1,26 +1,21 @@
 <?php
 
 use App\Http\Controllers\AnggaranController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MasterBahanController;
 use App\Http\Controllers\MasterKategoriController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResepController;
 use App\Http\Controllers\StokUserController;
-use App\Models\StokUser;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboard');
 });
 
-Route::get('/dashboard', function () {
-    $uid = auth()->id();
-    $expired = StokUser::milikUser($uid)->expired()->count();
-    $menipis = StokUser::milikUser($uid)->menipis(3)->count();
-    $totalStok = StokUser::milikUser($uid)->count();
-    $stokTerbaru = StokUser::with('bahan')->milikUser($uid)->orderBy('tanggal_kadaluarsa')->limit(5)->get();
-    return view('dashboard', compact('expired', 'menipis', 'totalStok', 'stokTerbaru'));
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
