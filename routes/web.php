@@ -3,6 +3,7 @@
 use App\Http\Controllers\MasterBahanController;
 use App\Http\Controllers\MasterKategoriController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResepController;
 use App\Http\Controllers\StokUserController;
 use App\Models\StokUser;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('stok', StokUserController::class)->except(['show'])->parameters([
         'stok' => 'stok',
     ]);
+    Route::resource('resep', ResepController::class);
 });
 
 require __DIR__.'/auth.php';
