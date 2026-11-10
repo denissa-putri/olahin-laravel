@@ -57,4 +57,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(StokUser::class, 'id_user', 'id_user');
     }
+
+    public function weeklyGroceries()
+    {
+        return $this->hasMany(WeeklyGrocery::class, 'id_user', 'id_user');
+    }
+
+    public function anggaran()
+    {
+        return $this->hasMany(AnggaranUser::class, 'id_user', 'id_user');
+    }
+
+    public function daftarBelanja()
+    {
+        return $this->hasMany(DaftarBelanja::class, 'id_user', 'id_user');
+    }
 }

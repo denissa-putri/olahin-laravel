@@ -24,6 +24,12 @@
                     <x-nav-link :href="route('master-kategori.index')" :active="request()->routeIs('master-kategori.*')">
                         {{ __('Kategori') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('resep.index')" :active="request()->routeIs('resep.*')">
+                        {{ __('Resep') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('anggaran.index')" :active="request()->routeIs('anggaran.*')">
+                        {{ __('Anggaran') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -87,6 +93,12 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('master-kategori.index')" :active="request()->routeIs('master-kategori.*')">
                 {{ __('Kategori') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('resep.index')" :active="request()->routeIs('resep.*')">
+                {{ __('Resep') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('anggaran.index')" :active="request()->routeIs('anggaran.*')">
+                {{ __('Anggaran') }}
             </x-responsive-nav-link>
         </div>
 

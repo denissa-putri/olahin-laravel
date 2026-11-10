@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnggaranController;
 use App\Http\Controllers\MasterBahanController;
 use App\Http\Controllers\MasterKategoriController;
 use App\Http\Controllers\ProfileController;
@@ -36,6 +37,13 @@ Route::middleware('auth')->group(function () {
         'stok' => 'stok',
     ]);
     Route::resource('resep', ResepController::class);
+
+    // Modul Anggaran & Belanja (Farrel)
+    Route::get('/anggaran', [AnggaranController::class, 'index'])->name('anggaran.index');
+    Route::post('/anggaran/target', [AnggaranController::class, 'updateTarget'])->name('anggaran.target.update');
+    Route::post('/anggaran/grocery', [AnggaranController::class, 'storeGrocery'])->name('anggaran.grocery.store');
+    Route::put('/anggaran/grocery/{id}', [AnggaranController::class, 'updateGrocery'])->name('anggaran.grocery.update');
+    Route::delete('/anggaran/grocery/{id}', [AnggaranController::class, 'destroyGrocery'])->name('anggaran.grocery.destroy');
 });
 
 require __DIR__.'/auth.php';
